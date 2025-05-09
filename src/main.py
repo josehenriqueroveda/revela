@@ -17,4 +17,4 @@ def main():
 
 if __name__ == "__main__":
     result = main()
-    save_devotional(result)
+    save_devotional(result.raw)
