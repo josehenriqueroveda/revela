@@ -1,7 +1,8 @@
 import os
 
 from dotenv import load_dotenv
-from crewai import Agent, LLM
+from crewai import Agent
+from langchain_openai import ChatOpenAI
 
 from tools.search import BibleSearchTool
 
@@ -9,15 +10,15 @@ from tools.search import BibleSearchTool
 def get_llm(temperature: float = 0.1):
     load_dotenv()
 
-    if not os.getenv("GEMINI_API_KEY"):
-        print("Error: GEMINI_API_KEY environment variable not set.")
+    MODEL_NAME = os.getenv("MODEL_NAME", "ollama/gemma3:1b")
+    BASE_URL = os.getenv("BASE_URL", "http://localhost:11434/v1")
 
-    if not os.getenv("GEMINI_MODEL"):
-        print("Error: GEMINI_MODEL environment variable not set.")
+    print(f"🤗 Initializing local LLM via Ollama: {MODEL_NAME} available at {BASE_URL}")
 
-    llm = LLM(
-        api_key=os.environ["GEMINI_API_KEY"],
-        model=os.environ["GEMINI_MODEL"],
+    llm = ChatOpenAI(
+        model=MODEL_NAME,
+        base_url=BASE_URL,
+        api_key="sk-ollama-placeholder",
         temperature=temperature,
     )
 
@@ -60,14 +61,12 @@ class RevelaAgents:
             role="Theological Analyst",
             goal="Deliver profound theological insights and practical reflections on Biblical passages by examining their context and meaning.",
             backstory=(
-                "You are a respected theologian and ordained pastor with a deep love for Jesus Christ and the Gospel. "
-                "You specialize in Biblical hermeneutics, ancient Near Eastern history, Koine Greek and Hebrew, and systematic theology. "
-                "You analyze scripture with care, exploring its historical background, literary structure, original language, "
-                "and spiritual significance. Your mission is to help others understand God's Word with depth, clarity, and faithfulness, "
-                "applying its truths to the modern Christian life."
+                "You are a respected theologian and ordained pastor with a deep love for Jesus Christ and the Gospel."
+                "Your mission is to help others understand God's Word with depth, clarity, and faithfulness, "
+                "applying its truths to the modern Christian life, **based on the scripture passages provided to you.**"
             ),
             verbose=True,
-            allow_delegation=True,
+            allow_delegation=False,
             llm=self.llm,
         )
 
@@ -86,6 +85,6 @@ class RevelaAgents:
                 "You understand the pastoral heart—encouraging, convicting, and guiding people toward a deeper walk with God."
             ),
             verbose=True,
-            allow_delegation=True,
+            allow_delegation=False,
             llm=self.llm,
         )
