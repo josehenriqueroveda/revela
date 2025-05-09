@@ -1,16 +1,16 @@
-# Revela: AI-Powered Devotional Generator
+# ✝️ Revela: AI-Powered Devotional Generator
 
 Revela is an AI-powered system that generates devotionals based on specific themes. Using a crew of specialized AI agents, Revela researches relevant Bible passages, provides theological analysis, and crafts structured spiritual messages.
 
 ## Features
 
-- **Bible Research Agent**: Locates precise scripture passages based on references or thematic keywords
-- **Theological Analyst**: Provides deep historical, literary, and spiritual interpretation of passages
-- **Sermon Writer**: Crafts well-structured, Christ-centered messages for spiritual edification
-- **Local LLM Support**: Works with local models via Ollama (default: Gemma 3 1B)
-- **Bible Search Tool**: Efficiently searches through scripture with both reference and keyword lookup
+- **🔍 Bible Research Agent**: Locates precise scripture passages based on references or thematic keywords
+- **📚 Theological Analyst**: Provides deep historical, literary, and spiritual interpretation of passages
+- **✍️ Devotional Writer**: Crafts well-structured, Christ-centered messages for spiritual edification
+- **🦙 Local LLM Support**: Works with local models via Ollama (default: Gemma 3 1B)
+- **⛪ Bible Search Tool**: Efficiently searches through scripture with both reference and keyword lookup
 
-## Bible Data
+## 📖 Bible Data
 The application uses a JSON file (bible.json) that contains the complete text of the Bible in a specific format. The expected structure is:
 ```json{
   "metadata": {
@@ -31,7 +31,7 @@ The application uses a JSON file (bible.json) that contains the complete text of
 ```
 Make sure this file is placed in the `src/data` directory.
 
-## Installation
+## ⚙️ Installation
 
 1. Clone this repository:
 ```bash
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ollama pull gemma3:1b
 ```
 
-## Usage
+## 🙌 Usage
 Run the main script:
 ```bash
 python src/main.py
@@ -66,7 +66,7 @@ You will be prompted to enter a **theme** for your devotional or sermon. The sys
 3. Generate a complete devotional message
 4. The output will be saved as a **markdown** file with today's date (e.g., `devotional-2025-05-10.md`).
 
-## Project Structure
+## 📦 Project Structure
 ```
 revela/
 ├── src/
@@ -82,7 +82,7 @@ revela/
 └── requirements.txt       # Python dependencies
 ```
 
-## Requirements
+## 📝 Requirements
 - Python 3.10+
 - Ollama (for local LLM) or OpenAI API Key
 - Bible data in JSON format (see `src/data/bible.json`)
