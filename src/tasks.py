@@ -46,20 +46,20 @@ class RevelaTasks:
             context=[self.bible_research_task()],
         )
 
-    def sermon_writing_task(self):
+    def devotional_writing_task(self):
         analysis_task_output_placeholder = "{context_from_theological_analysis_task}"
         return Task(
             description=(
                 "You have received an theological insights from the Theological Analyst. "
-                f"Your task is to write a short sermon or devotional (100–300 words) using these insights: \n'{analysis_task_output_placeholder}'\n\n"
-                f"Your sermon shoud be base on the theme '{self.theme}' plus the insights received. Structure it with:\n"
+                f"Your task is to write a short devotional (100–300 words) using these insights: \n'{analysis_task_output_placeholder}'\n\n"
+                f"Your devotional shoud be based on the theme '{self.theme}' plus the insights received. Structure it with:\n"
                 "- An engaging introduction\n"
                 "- Scriptural exposition (using the analyzed passages)\n"
                 "- A spiritual or practical application\n"
                 "- A closing encouragement or prayer"
                 "Focus solely on the insights given to you. Do not attempt to search for other insights or delegate this search."
             ),
-            expected_output="A complete, well-structured sermon or devotional message.",
-            agent=self.agents_handler.sermon_writer(),
+            expected_output="A complete, well-structured devotional message.",
+            agent=self.agents_handler.devotional_writer(),
             context=[self.theological_analysis_task()],
         )

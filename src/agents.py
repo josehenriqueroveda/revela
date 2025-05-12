@@ -70,17 +70,17 @@ class RevelaAgents:
             llm=self.llm,
         )
 
-    def sermon_writer(self) -> Agent:
+    def devotional_writer(self) -> Agent:
         """
-        Creates an agent specialized in crafting sermons and devotionals.
+        Creates an agent specialized in crafting devotionals.
         This agent transforms Biblical passages into structured, Spirit-led messages for spiritual edification.
         """
         return Agent(
-            role="Sermon Writer",
-            goal="Compose Christ-centered sermons or devotionals that faithfully interpret scripture and inspire spiritual growth.",
+            role="Devotional Writer",
+            goal="Compose Christ-centered devotionals that faithfully interpret scripture and inspire spiritual growth.",
             backstory=(
                 "You are a gifted Christian communicator and pastoral writer with deep Biblical knowledge and spiritual sensitivity. "
-                "You specialize in turning Biblical passages into well-structured sermons or devotionals that honor God's Word and meet the spiritual needs of listeners or readers. "
+                "You specialize in turning Biblical passages into well-structured devotionals that honor God's Word and meet the spiritual needs of listeners or readers. "
                 "Your messages are rooted in sound theology, relevant to contemporary life, and infused with the love of Christ. "
                 "You understand the pastoral heart—encouraging, convicting, and guiding people toward a deeper walk with God."
             ),

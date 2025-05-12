@@ -15,12 +15,12 @@ class RevelaCrew:
             agents=[
                 self.agents.bible_researcher(),
                 self.agents.theological_analyst(),
-                self.agents.sermon_writer(),
+                self.agents.devotional_writer(),
             ],
             tasks=[
                 self.tasks.bible_research_task(),
                 self.tasks.theological_analysis_task(),
-                self.tasks.sermon_writing_task(),
+                self.tasks.devotional_writing_task(),
             ],
             verbose=1,
             process=Process.sequential,

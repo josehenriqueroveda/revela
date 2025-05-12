@@ -60,7 +60,7 @@ Run the main script:
 ```bash
 python src/main.py
 ```
-You will be prompted to enter a **theme** for your devotional or sermon. The system will then:
+You will be prompted to enter a **theme** for your devotional. The system will then:
 1. Search for relevant Bible passages
 2. Analyze them theologically
 3. Generate a complete devotional message

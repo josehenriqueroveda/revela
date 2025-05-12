@@ -9,7 +9,7 @@ def save_devotional(content):
 
 
 def main():
-    theme = input("Enter the theme for the devotional/sermon: ").strip()
+    theme = input("Enter the theme for the devotional: ").strip()
     crew = RevelaCrew(theme)
     result = crew.run()
     return result
